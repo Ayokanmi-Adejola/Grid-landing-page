@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Grid landing page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Nav -->
+  <header class="nav">
+    <div class="nav__logo">
+      <span class="nav__dot" aria-hidden="true"></span>
+      <span class="nav__brand">Bridge Collective</span>
+    </div>
+    <button class="nav__hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="menu-panel">
+      <img src="./assets/images/icon-menu.svg" alt="" aria-hidden="true">
+    </button>
+  </header>
+
+  <!-- Menu panel overlay -->
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+
+  <!-- Menu panel -->
+  <nav class="menu-panel" id="menu-panel" aria-hidden="true">
+    <button class="menu-panel__close" aria-label="Close navigation menu">
+      <img src="./assets/images/icon-close.svg" alt="" aria-hidden="true">
+    </button>
+    <ul class="menu-panel__list" role="list">
+      <li><a href="#" class="menu-panel__link">About</a></li>
+      <li><a href="#" class="menu-panel__link">Our Work</a></li>
+      <li><a href="#" class="menu-panel__link">Partners</a></li>
+      <li><a href="#" class="menu-panel__link">Annual Report</a></li>
+      <li><a href="#" class="menu-panel__link">Donate</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Hero">
+      <h1 class="hero__heading">A classroom for every child.</h1>
+      <p class="hero__body">We fund the schools, train the teachers, and measure what works — so every child we reach today becomes a graduate tomorrow.</p>
+    </section>
+
+    <!-- Stats grid -->
+    <section class="stats" aria-label="Impact statistics">
+
+      <article class="stat-card">
+        <div class="stat-card__top">
+          <img src="./assets/images/icon-sparkle.svg" alt="" aria-hidden="true" class="stat-card__icon">
+          <span class="stat-card__number">2.4M</span>
+        </div>
+        <div class="stat-card__bottom">
+          <h2 class="stat-card__label">Students reached</h2>
+          <p class="stat-card__desc">Across 31 countries since 2011.</p>
+        </div>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-card__top">
+          <img src="./assets/images/icon-plus.svg" alt="" aria-hidden="true" class="stat-card__icon">
+          <span class="stat-card__number">1,284</span>
+        </div>
+        <div class="stat-card__bottom">
+          <h2 class="stat-card__label">Schools partnered</h2>
+          <p class="stat-card__desc">In 14 countries, from Kenya to Guatemala.</p>
+        </div>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-card__top">
+          <img src="./assets/images/icon-arrow-right.svg" alt="" aria-hidden="true" class="stat-card__icon">
+          <span class="stat-card__number">38K</span>
+        </div>
+        <div class="stat-card__bottom">
+          <h2 class="stat-card__label">Teachers trained</h2>
+          <p class="stat-card__desc">Equipped with modern tools and methodology.</p>
+        </div>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-card__top">
+          <img src="./assets/images/icon-trending-up.svg" alt="" aria-hidden="true" class="stat-card__icon">
+          <span class="stat-card__number">3.1×</span>
+        </div>
+        <div class="stat-card__bottom">
+          <h2 class="stat-card__label">Graduation lift</h2>
+          <p class="stat-card__desc">Partner schools outperform national averages 3x.</p>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer__copy">© 2026 Bridge Collective</p>
+    <p class="footer__reg">Registered charity 12345678</p>
+  </footer>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/Ayokanmi-Adejola">Ayokanmi Adejola</a>.
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

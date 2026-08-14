@@ -1,0 +1,527 @@
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  background-color: hsl(228, 99%, 58%);
+  color: hsl(0, 0%, 100%);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Inter variable font */
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/inter/inter-variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+  /* thin bottom border acts as the divider line shown in design */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 10;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav__dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: hsl(0, 0%, 100%);
+  flex-shrink: 0;
+}
+
+.nav__brand {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: hsl(0, 0%, 100%);
+}
+
+.nav__hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(0, 0%, 100%);
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.nav__hamburger:hover,
+.nav__hamburger:focus-visible {
+  opacity: 0.7;
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+.nav__hamburger img {
+  display: block;
+  width: 24px;
+  height: 16px;
+}
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+.main {
+  flex: 1;
+  display: grid;
+  /* Left hero column ~45%, right stats column ~55% */
+  grid-template-columns: 45fr 55fr;
+  grid-template-rows: 1fr;
+  /* Top and bottom borders of the main section */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px;
+  padding-bottom: 56px;
+  /* Right border separating hero from stats */
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero__heading {
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+
+.hero__body {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.55;
+  max-width: 380px;
+  opacity: 0.9;
+}
+
+/* ============================================================
+   STATS GRID
+   ============================================================ */
+.stats {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+/* ============================================================
+   STAT CARD
+   ============================================================ */
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 32px 32px 32px;
+  position: relative;
+  min-height: 0;
+}
+
+/* Divider lines between cards */
+/* Right border on col 1 cards */
+.stat-card:nth-child(odd) {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Bottom border on row 1 cards */
+.stat-card:nth-child(1),
+.stat-card:nth-child(2) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.stat-card__icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.stat-card__number {
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.stat-card__bottom {
+  margin-top: 16px;
+}
+
+.stat-card__label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.stat-card__desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  opacity: 0.8;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* ============================================================
+   MENU OVERLAY
+   ============================================================ */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: hsla(0, 0%, 0%, 0.25);
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.menu-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ============================================================
+   MENU PANEL
+   ============================================================ */
+.menu-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* On desktop it covers the right ~55% matching the stats column */
+  width: 55%;
+  height: 100%;
+  background-color: hsl(228, 99%, 58%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 24px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  /* Left border separating from the dimmed content */
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu-panel.is-open {
+  transform: translateX(0);
+}
+
+.menu-panel__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(0, 0%, 100%);
+  /* Align close button with the nav height */
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.menu-panel__close:hover,
+.menu-panel__close:focus-visible {
+  opacity: 0.7;
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+.menu-panel__close img {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.menu-panel__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 48px;
+  width: 100%;
+}
+
+.menu-panel__link {
+  display: inline-block;
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: hsl(0, 0%, 100%);
+  text-decoration: none;
+  line-height: 1.3;
+  padding: 4px 0;
+  position: relative;
+}
+
+.menu-panel__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: hsl(0, 0%, 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.menu-panel__link:hover::after,
+.menu-panel__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.menu-panel__link:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   ATTRIBUTION
+   ============================================================ */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  padding: 8px;
+  opacity: 0.7;
+}
+
+.attribution a {
+  color: hsl(224, 100%, 95%);
+}
+
+/* ============================================================
+   MOBILE — 375px breakpoint
+   ============================================================ */
+@media (max-width: 767px) {
+
+  /* Nav */
+  .nav {
+    padding: 0 20px;
+    height: 56px;
+  }
+
+  /* Main: stack hero on top, stats below */
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    border-top: none;
+    border-bottom: none;
+  }
+
+  /* Hero */
+  .hero {
+    grid-column: 1;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 32px 20px 40px;
+    justify-content: flex-start;
+  }
+
+  .hero__heading {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    margin-bottom: 20px;
+  }
+
+  .hero__body {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  /* Stats: single column, each card stacked */
+  .stats {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .stat-card {
+    padding: 28px 20px;
+    min-height: 220px;
+  }
+
+  /* Reset desktop dividers */
+  .stat-card:nth-child(odd) {
+    border-right: none;
+  }
+
+  .stat-card:nth-child(1),
+  .stat-card:nth-child(2) {
+    border-bottom: none;
+  }
+
+  /* All cards get a top border except first */
+  .stat-card + .stat-card {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .stat-card__number {
+    font-size: clamp(2.2rem, 12vw, 3rem);
+  }
+
+  /* Footer: stack vertically */
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 20px 20px;
+  }
+
+  /* Menu panel: full width on mobile */
+  .menu-panel {
+    width: 100%;
+    align-items: center;
+    padding: 0 20px;
+    border-left: none;
+  }
+
+  .menu-panel__close {
+    align-self: flex-end;
+  }
+
+  .menu-panel__list {
+    align-items: center;
+    margin-top: 32px;
+    gap: 4px;
+  }
+
+  .menu-panel__link {
+    font-size: clamp(1.6rem, 6vw, 2rem);
+    text-align: center;
+  }
+
+}
+
+/* ============================================================
+   TABLET — 768px–1023px
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero {
+    padding: 36px;
+  }
+
+  .hero__heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .stat-card {
+    padding: 24px;
+  }
+
+  .stat-card__number {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+
+  .menu-panel {
+    width: 60%;
+  }
+
+  .footer {
+    padding: 20px 36px;
+  }
+
+  .nav {
+    padding: 0 36px;
+  }
+}
+
+/* ============================================================
+   DESKTOP — 1024px+
+   ============================================================ */
+@media (min-width: 1024px) {
+  .nav {
+    padding: 0 40px;
+    height: 64px;
+  }
+
+  .footer {
+    padding: 22px 40px;
+  }
+
+  .hero {
+    padding: 56px 48px 64px;
+  }
+
+  .stat-card {
+    padding: 36px;
+  }
+}
+
+/* ============================================================
+   LARGE DESKTOP — 1440px+
+   ============================================================ */
+@media (min-width: 1440px) {
+  .stat-card__number {
+    font-size: 3.5rem;
+  }
+
+  .hero__heading {
+    font-size: 4rem;
+  }
+}
